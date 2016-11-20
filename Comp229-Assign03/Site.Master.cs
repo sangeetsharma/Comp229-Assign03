@@ -69,6 +69,21 @@ namespace Comp229_Assign03
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            String pageUrl = HttpContext.Current.Request.Url.AbsolutePath;
+            if (pageUrl.Contains("Default"))
+            {
+                Page.Title = "Home";
+            }
+            else if (pageUrl.Contains("StudentDetails"))
+            {
+                Page.Title = "Student details";
+            }
+            else
+            {
+                Page.Title = pageUrl.Substring(1);
+            }
+
+
 
         }
 
